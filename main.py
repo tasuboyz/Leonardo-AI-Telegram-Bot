@@ -1,9 +1,9 @@
-from bot import BOT
+from telegram_bot import BotCommand
 
 import asyncio
-from logger_config import logger
-from ascii import art
-from db import Database
+from command.basic.logger_config import logger
+from command.basic.ascii import art
+from command.basic.db import Database
 
 async def on_start():
     print(f"{art}")
@@ -14,7 +14,7 @@ async def on_stop():
 
 async def main():
     try:       
-        my_bot = BOT()
+        my_bot = BotCommand()
         await on_start()
         await my_bot.dp.start_polling(my_bot.bot)
     except Exception as ex:
