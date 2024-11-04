@@ -1,0 +1,1 @@
+2024-11-03 17:55:01,146 - logger_config - ERROR - local variable 'keyboard' referenced before assignment
