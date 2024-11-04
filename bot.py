@@ -75,7 +75,6 @@ class BOT():
         apiCreditCost = result['sdGenerationJob']['apiCreditCost']
 
         image_url = await self.send_upload_action(generationId, prompt, chat_id)
-        print(f"Image URL: {image_url}")
         if image_url:
             if apiCreditCost < 20:
                 await self.bot.send_photo(chat_id, photo=f"{image_url}", caption=f'"`{prompt}`"\n(0)', parse_mode=ParseMode.MARKDOWN)
@@ -87,7 +86,7 @@ class BOT():
         await asyncio.sleep(5)  # Attendi 5 secondi prima di inviare di nuovo l'azione
         image_url = self.leonardo.get_image(generationId, prompt)
         if image_url is None:
-            await self.send_upload_action(generationId, prompt, chat_id)  # Richiama la funzione ricorsivamente finché l'immagine non è pronta
+            return await self.send_upload_action(generationId, prompt, chat_id)  # Richiama la funzione ricorsivamente finché l'immagine non è pronta
         else:
             return image_url
 
