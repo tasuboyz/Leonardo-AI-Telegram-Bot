@@ -1,6 +1,6 @@
 import logging
 
-TOKEN = '6348055484:AAGhOv6sx5B4acQj-XUfRWV3kJz53FvioWs' #token produzione
+TOKEN = '' #token produzione
 
 admin_id = 1026795763
 
